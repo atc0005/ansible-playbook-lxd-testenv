@@ -1,0 +1,10 @@
+---
+
+# These are LXD containers, so use lxd connection type when making initial
+# connections for setup purposes.
+ansible_connection: "lxd"
+
+# lxd does not support remote_user (i.e., this setting) and defaults to 'root'
+ansible_user: "root"
+
+...

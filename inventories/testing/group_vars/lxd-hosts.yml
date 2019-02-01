@@ -1,0 +1,8 @@
+---
+
+# Allow the installation of LXD packages necessary to create and manage LXD
+# containers. Apply this setting only to host systems in the lxd_hosts group.
+setup_lxd_host: true
+
+
+...
