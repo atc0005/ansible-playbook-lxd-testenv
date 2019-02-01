@@ -1,0 +1,6 @@
+---
+
+- import_playbook: lxd-setup.yml
+- import_playbook: docker-setup.yml
+
+...

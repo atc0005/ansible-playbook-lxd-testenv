@@ -1,0 +1,9 @@
+---
+
+# Defines what container image is used
+
+lxd_image_source: "centos/7/amd64"
+
+python_install_command: "yum install -y python"
+
+...

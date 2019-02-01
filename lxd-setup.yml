@@ -1,0 +1,53 @@
+---
+
+# vim: ts=2:sw=2:et:ft=ansible
+# -*- mode: ansible; indent-tabs-mode: nil; tab-width: 2 -*-
+# code: language=ansible insertSpaces=true tabSize=2
+
+- name: Configure base LXD host
+  hosts: localhost
+  connection: local
+
+  # Should be fine to gather facts for just the future LXD host
+  gather_facts: yes
+
+  tasks:
+
+    # Stub role for now. Later work will have it install required packages
+    # needed in order to configure host system for running LXD containers
+    - name: Apply lxd-host role to install LXD packages, perform initial setup
+      import_role:
+        name: atc0005.lxd-host
+
+
+- name: Setup LXD test environment
+  hosts: all
+  connection: local
+
+  # This is needed due to potential for multiple access attempts via modules
+  # that are not intended/designed for it. Without this setting occasional
+  # race conditions occur which results in data corruption.
+  serial: 1
+
+  # Rely on specific tasks to call setup module as needed
+  gather_facts: no
+
+  tasks:
+
+    # Default role settings handle creation; we have to explicitly enable
+    # container/settings removal tasks
+    - name: Apply lxd-testenv role to create test environment
+      import_role:
+        name: atc0005.lxd-testenv
+      vars:
+        # Valid values: "create" and "remove"
+        state: "create"
+
+        # This role's default Docker storage setting is 'vfs', which works and
+        # is likely the most compatible option available, but is very slow.
+        # Override when possible to use a newer storage driver.
+        #
+        # Note: The 'overlay' Docker storage driver is compatible with LXD's
+        # "dir" storage and  is supposed to give better performance, so use
+        # that option if it is available to you.
+        # lxd_containers_docker_storage_driver: "overlay"

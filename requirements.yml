@@ -1,0 +1,16 @@
+---
+
+- name: "atc0005.docker-host"
+  src: "https://github.com/atc0005/ansible-role-docker-host.git"
+  version: "v1.0"
+
+- name: "atc0005.lxd-host"
+  src: "https://github.com/atc0005/ansible-role-lxd-host.git"
+  version: "initial-import-from-incubator-repo"
+
+- name: "atc0005.lxd-testenv"
+  src: "https://github.com/atc0005/ansible-role-lxd-testenv.git"
+  version: "v1.0"
+
+...
+

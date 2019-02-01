@@ -1,0 +1,8 @@
+---
+
+# Defines what container image is used
+lxd_image_source: "ubuntu/xenial/amd64"
+
+python_install_command: "apt-get update && apt-get install -y python"
+
+...

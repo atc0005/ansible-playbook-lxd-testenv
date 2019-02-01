@@ -1,0 +1,29 @@
+---
+
+# vim: ts=2:sw=2:et:ft=ansible
+# -*- mode: ansible; indent-tabs-mode: nil; tab-width: 2 -*-
+# code: language=ansible insertSpaces=true tabSize=2
+
+# Prototype docker setup playbook that uses the docker-host role
+
+# Note: If running this ina test LXD environment you should first run the
+# lxd-setup.yml playbook to apply the required lxd-testenv role/settings
+# (including the 'docker' LXD profile needed for LXD containers targeted by
+# this playbook/role)
+
+- name: Configure Docker host
+  hosts: docker-hosts
+  connection: local
+
+  # Should be fine to gather facts for just the  Docker host
+  gather_facts: yes
+
+  tasks:
+
+    # Stub role for now. Later work will have it install required packages
+    # needed in order to configure host system for running LXD containers
+    - name: Apply docker-host role to install Docker packages, perform initial setup
+      import_role:
+        name: atc0005.docker-host
+
+...
