@@ -3,6 +3,15 @@
 *Small suite of playbooks intended to help quickly spin up a test environment
 for other playbook work.*
 
+## Overview
+
+| Name               | Purpose (short)                                                      | Documentation                                                              |
+|--------------------|----------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `site.yml`         | Call `lxd-setup.yml` and `docker-setup.yml`                         | [lxd-setup.yml](docs/lxd-setup.md), [docker-setup.yml](docs/docker-setup.md) |
+| `docker-setup.yml` | Install packages, configure specified hosts to run Docker containers | [playbook](docs/docker-setup.md)                                           |
+| `lxd-setup.yml`    | Create LXD container test environment                                | [playbook](docs/lxd-setup.md)                                              |
+| `lxd-remove.yml`   | Tear down LXD container test environment                             | [playbook](docs/lxd-remove.md)                                             |
+
 ## Limitations
 
 ### Linux Distributions
@@ -21,10 +30,10 @@ is incompatible with ZFS LXD storage, so it is a choice that you will have to
 intentionally opt-in to using.
 
 To set this value (or any other Docker storage driver), set the
-`lxd_containers_docker_storage_driver` variable within the `lxd-setup.yml`
-playbook or another file that you include from the playbook. As of this
-writing an override to enable use of the `overlay` driver is commented out
-in the appropriate place in the playbook.
+`lxd_containers_docker_storage_driver` variable within the
+[`lxd-setup.yml`](docs/lxd-setup.md) playbook or another file that you include
+from the playbook. As of this writing an override to enable use of the
+`overlay` driver is commented out in the appropriate place in the playbook.
 
 ## Prerequisites
 
@@ -63,38 +72,30 @@ sufficient.
 
 ### Install roles
 
-- While it is technically possible to install each role manually, a
-  `requirements.yml` file is provided to help automate this step.
-- Because `ansible-galaxy` does not yet natively support updating existing
-  roles, the example installation instructions provided below include the
-  `--force` parameter to *force* pulling in the latest updates as directed by
-  the `requirements.yml` file.
-
-#### Option 1: Within your home directory
-
-- `ansible-galaxy install -r requirements.yml --force`
-
-#### Option 2: Within a `roles` directory in the same location as playbooks
-
-- `ansible-galaxy install -r requirements.yml -p roles --force`
-
-#### Option 3: System-wide for all users
-
-- `sudo ansible-galaxy install -r requirements.yml --force`
+See the guide [here](docs/install-roles.md) for the steps needed to install
+roles required by these playbooks.
 
 ### Create new test environment
 
 The following steps will prep the host to run LXD containers and then proceed
-to spin up several CentOS and Ubuntu containers. By default at least one
-additional contain will be spun up as a Docker Host for testing Docker related
-playbooks. Edit `site.yml` and disable the inclusion of the `docker-setup.yml`
-playbook to disable that step:
+to spin up several CentOS and Ubuntu containers:
 
 - `ansible-playbook -i inventories/testing site.yml -K`
+
+Note: By default, at least one additional container will be spun up as a
+Docker Host for testing Docker related playbooks. Edit `site.yml` and disable
+the inclusion of the `docker-setup.yml` playbook to disable that step.
+
+See these docs for more information:
+
+- [lxd-setup.yml](docs/lxd-setup.md)
+- [docker-setup.yml](docs/docker-setup.md)
 
 ### Teardown test environment
 
 - `ansible-playbook -i inventories/testing lxd-remove.yml -K`
+
+See [this doc](docs/lxd-remove.md) for more information.
 
 ## References
 
