@@ -1,4 +1,5 @@
 ---
 
+# This file is for variables that apply to all hosts in this inventory.
 
 ...

@@ -2,6 +2,8 @@
 
 # Allow the installation of LXD packages necessary to create and manage LXD
 # containers. Apply this setting only to host systems in the lxd_hosts group.
+# Note: As of v1.0 of the role and associated playbooks, this option does
+# nothing, though there are plans to implement it in the future.
 setup_lxd_host: true
 
 

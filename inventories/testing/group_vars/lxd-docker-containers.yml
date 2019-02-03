@@ -1,7 +1,7 @@
 ---
 
-# Placeholder for settings specific to setting up a LXD container intended
-# to host a Docker daemon / test environment
+# Settings specific to LXD containers intended to host a Docker daemon / test
+# environment
 lxd_containers_profiles:
   - "default"
   - "docker"

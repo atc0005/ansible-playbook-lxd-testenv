@@ -10,7 +10,12 @@
 
 - name: Tear down our LXD test environment
   hosts: all
-  connection: local
+
+  # Rely on this setting to be specified in host_vars or group_vars files. If
+  # we lock in the 'local' option here then that rules out connecting via SSH
+  # later, perhaps as a means of validating earlier playbook tasks.
+  # connection: local
+
   gather_facts: no
 
   # This is needed due to potential for multiple access attempts via modules

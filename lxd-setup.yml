@@ -6,7 +6,11 @@
 
 - name: Configure base LXD host
   hosts: localhost
-  connection: local
+
+  # Rely on this setting to be specified in host_vars or group_vars files. If
+  # we lock in the 'local' option here then that rules out setting up any
+  # remote hosts as Docker hosts.
+  # connection: local
 
   # Should be fine to gather facts for just the future LXD host
   gather_facts: yes
@@ -22,7 +26,11 @@
 
 - name: Setup LXD test environment
   hosts: all
-  connection: local
+
+  # Rely on this setting to be specified in host_vars or group_vars files. If
+  # we lock in the 'local' option here then that rules out connecting via SSH
+  # later, perhaps as a means of validating earlier playbook tasks.
+  # connection: local
 
   # This is needed due to potential for multiple access attempts via modules
   # that are not intended/designed for it. Without this setting occasional

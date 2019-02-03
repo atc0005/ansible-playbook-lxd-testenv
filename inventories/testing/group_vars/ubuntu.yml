@@ -3,6 +3,8 @@
 # Defines what container image is used
 lxd_image_source: "ubuntu/xenial/amd64"
 
+# Distro-specific command needed to install Python 2. Python is needed on the
+# host systems in order to provide access to additional modules.
 python_install_command: "apt-get update && apt-get install -y python"
 
 ...

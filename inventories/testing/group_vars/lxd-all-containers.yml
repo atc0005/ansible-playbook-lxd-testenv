@@ -7,4 +7,9 @@ ansible_connection: "lxd"
 # lxd does not support remote_user (i.e., this setting) and defaults to 'root'
 ansible_user: "root"
 
+# Explictly set here instead of within playbooks that manipulate containers
+# created from this testing inventory. This allows those same playbooks
+# (at least in theory) to be used for truly remote hosts as well.
+connection: local
+
 ...
