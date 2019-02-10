@@ -24,6 +24,7 @@
 ## See also
 
 - Main [README](../README.md) file
+- <https://github.com/atc0005/ansible-playbook-lxd-testenv>
 
 - <https://github.com/atc0005/ansible-role-lxd-host>
 - <https://github.com/atc0005/ansible-role-lxd-testenv>

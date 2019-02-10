@@ -4,24 +4,23 @@
 # -*- mode: yaml; indent-tabs-mode: nil; tab-width: 2 -*-
 # code: language=yaml insertSpaces=true tabSize=2
 
+# https://github.com/atc0005/ansible-playbook-lxd-testenv
+# https://github.com/atc0005/ansible-role-lxd-testenv
+
 # https://docs.ansible.com/ansible/latest/modules/lxd_container_module.html
 
 # Prune container settings after completion of test work
 
 - name: Tear down our LXD test environment
-  hosts: all
+  hosts: localhost
 
   # Rely on this setting to be specified in host_vars or group_vars files. If
   # we lock in the 'local' option here then that rules out connecting via SSH
   # later, perhaps as a means of validating earlier playbook tasks.
   # connection: local
 
+  # Fact gathering is not needed for container and settings removal
   gather_facts: no
-
-  # This is needed due to potential for multiple access attempts via modules
-  # that are not intended/designed for it. Without this setting occasional
-  # race conditions occur which results in data corruption.
-  serial: 1
 
   tasks:
 
