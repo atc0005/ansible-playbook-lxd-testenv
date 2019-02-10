@@ -117,7 +117,7 @@
         # https://askubuntu.com/questions/228530/updating-http-proxy-environment-variable
         # https://lxd.readthedocs.io/en/latest/environment/
         # lxd_containers_proxy_server: "http://proxy.example.com:3128/"
-        lxd_containers_proxy_server: ""
+        # lxd_containers_proxy_server: ""
 
         # Should the /etc/environment file be updated to set proxy server settings?
         # Note: This is safe to enable, even if the default value in this variables
