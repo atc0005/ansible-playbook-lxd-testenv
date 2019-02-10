@@ -8,7 +8,7 @@ a LXD-based testing environment previously created by running the
 
 ## Limitations
 
-- This playbook relies upon the `atc0005.lxd-testenv` role and as of v1.0 that
+- This playbook relies upon the `atc0005.lxd-testenv` role and as of v1.1 that
   role is only compatible with Ubuntu. Because of this, this playbook is only
   compatible with Ubuntu.
 
@@ -27,7 +27,9 @@ testing inventory from the main directory:
 
 ## Playbook runtime
 
-About 2-3 minutes when using a SSD drive.
+Under a minute when using a SSD drive. Teardown time is nearly identical
+between using 'dir' and 'zfs' LXD storage. See the [lxd-timing](lxd-timing.md)
+doc for more details.
 
 ## References
 

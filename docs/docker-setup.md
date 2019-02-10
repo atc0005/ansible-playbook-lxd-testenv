@@ -28,4 +28,4 @@ testing inventory from the main directory:
 ## References
 
 - <https://github.com/atc0005/ansible-role-docker-host>
-- <https://github.com/atc0005/ansible-role-docker-host/blob/v1.0/README.md>
+- <https://github.com/atc0005/ansible-role-docker-host/blob/master/README.md>

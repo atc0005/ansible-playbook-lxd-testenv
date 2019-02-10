@@ -1,0 +1,50 @@
+---
+
+- name: Testing
+  hosts: localhost
+  # https://blog.codecentric.de/en/2017/06/debug-ansible-playbooks-like-pro/
+  strategy: debug
+  connection: local
+  gather_facts: yes
+
+  vars:
+    lxd_containers_image_server: "https://images.linuxcontainers.org"
+    lxd_image_source: "ubuntu/xenial/amd64"
+    lxd_containers_profiles:
+      - "default"
+      - "docker"
+    #proxy_server_for_containers: "http://proxy.example.com:3128/"
+
+  tasks:
+
+    - name: Create container with specific environment variables set
+      block:
+        - name: Create test container
+          delegate_to: localhost
+          lxd_container:
+            name: "ubuntu-testing"
+            state: started
+            config:
+              "environment.http_proxy": "{{ proxy_server_for_containers | default('') }}"
+              "environment.https_proxy": "{{ proxy_server_for_containers | default('') }}"
+              "environment.ftp_proxy": "{{ proxy_server_for_containers | default('') }}"
+            source:
+              type: image
+              mode: pull
+              server: "{{ lxd_containers_image_server }}"
+              protocol: lxd
+              alias: "{{ lxd_image_source }}"
+            profiles: "{{ lxd_containers_profiles }}"
+            wait_for_ipv4_addresses: true
+            timeout: 600
+          register: container_creation_results
+      always:
+        - name: Display container creation results
+          debug:
+            var: container_creation_results
+            #verbosity: 1
+      tags:
+        - create
+
+
+...
