@@ -1,7 +1,7 @@
 ---
 
 # Defines what container image is used
-lxd_image_source: "centos/7/amd64"
+lxd_containers_image_source: "centos/7/amd64"
 
 # Distro-specific command needed to install Python 2. Python is needed on the
 # host systems in order to provide access to additional modules.
