@@ -65,6 +65,8 @@
         # Valid values: "create" and "remove"
         state: "create"
 
+        # lxd_host_create_profiles: true
+        # lxd_host_remove_profiles: false
         # lxd_host_update_user_known_hosts_file: false
         # lxd_host_update_system_known_hosts_file: false
         # lxd_host_update_ssh_client_user_config_file: false
