@@ -10,4 +10,7 @@
 
 # This file is for variables that apply to all hosts in this inventory.
 
+# Hyper-V NAT-connected Squid instance for package caching
+# lxd_containers_proxy_server: "http://172.23.194.68:3128/"
+
 ...

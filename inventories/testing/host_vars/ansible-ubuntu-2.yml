@@ -15,6 +15,19 @@
 # Defines what container image is used
 # See https://images.linuxcontainers.org/ for supported options
 # Specify using 'distribution/release/architecture' format
-lxd_containers_source_alias: "ubuntu/xenial/amd64"
+# lxd_containers_source_alias: "ubuntu/xenial/amd64"
+
+lxd_containers_packages_extra:
+  - "nano"
+  - "tmux"
+
+
+# Testing container creation via fingerprint
+# NOTE: When this is specified, alias should be ignored.
+#
+#  dcbc8e3e5c2e | yes    | ubuntu 18.04 LTS amd64 (release) (20190114)
+lxd_containers_source_fingerprint: "dcbc8e3e5c2e"
+lxd_containers_source_protocol: "simplestreams"
+lxd_containers_source_server: "https://cloud-images.ubuntu.com/releases"
 
 ...

@@ -17,4 +17,9 @@
 # Specify using 'distribution/release/architecture' format
 lxd_containers_source_alias: "centos/7/amd64"
 
+lxd_containers_add_proxy_to_etc_environment_file: true
+
+lxd_containers_service_account: "crickets"
+lxd_containers_service_group: "insects"
+
 ...

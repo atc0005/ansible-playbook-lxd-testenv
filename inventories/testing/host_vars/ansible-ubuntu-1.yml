@@ -17,4 +17,8 @@
 # Specify using 'distribution/release/architecture' format
 lxd_containers_source_alias: "ubuntu/bionic/amd64"
 
+# If bootstrap phase is disabled, the configuration phase should be
+# mostly skipped due to lack of Python installation.
+lxd_containers_bootstrap: false
+
 ...

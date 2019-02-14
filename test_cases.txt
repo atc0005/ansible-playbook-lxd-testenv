@@ -1,0 +1,32 @@
+    all
+        loligo proxy
+
+    centos
+
+        no modify /etc/environment
+        htop
+
+    centos-1
+        modify /etc/environment
+
+    ubuntu (all)
+        subversion (this should override everything else)
+        NO nano
+        NO tmux
+        NO htop
+
+    ubuntu-3
+        htop
+        nano
+
+    ubuntu-2
+        tmux
+        nano
+
+    ubuntu-4
+        do not modify container
+            lxd_containers_configure: false
+            lxd_containers_bootstrap: false
+
+
+# for box in ansible-ubuntu-{1..5}; do echo $box && lxc exec $box -- dpkg -l | grep -E 'htop|nano|tmux|subversion'; done

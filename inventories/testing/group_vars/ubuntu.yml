@@ -22,4 +22,7 @@ python_install_command: "apt-get update && apt-get install -y python"
 # Ubuntu 16.04+: 'ssh', includes 'sshd' symlink to match CentOS 6 and 7
 lxd_containers_sshd_service_name: "ssh"
 
+lxd_containers_packages_extra:
+  - "subversion"
+
 ...

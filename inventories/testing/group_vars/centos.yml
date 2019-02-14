@@ -22,4 +22,9 @@ python_install_command: "yum install -y python"
 # Ubuntu: 'ssh'
 lxd_containers_sshd_service_name: "sshd"
 
+# This one should take precedence over all others
+#lxd_containers_configure: false
+
+lxd_containers_add_proxy_to_etc_environment_file: false
+
 ...
