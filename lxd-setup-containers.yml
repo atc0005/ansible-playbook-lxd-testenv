@@ -7,35 +7,15 @@
 # https://github.com/atc0005/ansible-playbook-lxd-testenv
 # https://github.com/atc0005/ansible-role-lxd-testenv
 
-- name: Configure base LXD host
-  hosts: localhost
-
-  # Rely on this setting to be specified in host_vars or group_vars files. If
-  # we lock in the 'local' option here then that rules out setting up any
-  # remote hosts as LXD hosts.
-  # connection: local
-
-  # Should be fine to gather facts for just the future LXD host
-  gather_facts: yes
-
-  tasks:
-
-    # Stub role for now. Later work will have it install required packages
-    # needed in order to configure host system for running LXD containers
-    - name: Apply lxd-host role to install LXD packages, perform initial setup
-      import_role:
-        name: atc0005.lxd-host
-
-
 - name: Setup LXD test environment
-  hosts: localhost
+  hosts: all
 
   # Rely on this setting to be specified in host_vars or group_vars files. If
   # we lock in the 'local' option here then that rules out connecting via SSH
   # later, perhaps as a means of validating earlier playbook tasks.
   # connection: local
 
-  # This is handled by the earlier atc0005.lxd-host role play
+  # Fact gathering is explicitly forced later as needed.
   gather_facts: no
 
   tasks:
@@ -53,13 +33,20 @@
         # README file for the atc0005.lxd-testenv role for more information.
         # https://github.com/atc0005/ansible-role-lxd-testenv
         #
-        # Instead of setting values here for ALL hosts, you can also set
-        # values per group or per host in the test inventory files. For
-        # example, if you wish to have additional CentOS specific packages
+        # INSTEAD OF SETTING VALUES HERE FOR ALL HOSTS, YOU CAN ALSO SET
+        # VALUES PER GROUP OR PER HOST IN THE TEST INVENTORY FILES.
+        #
+        # For example, if you wish to have additional CentOS specific packages
         # installed in the CentOS test containers, update the
         # inventories/testing/group_vars/centos.yml file to include the list
         # of packages. See the 'lxd_containers_packages_extra' variable set
         # within this file for an example.
+        #
+        # Likewise, if you wish to use Ubuntu 18.04 in place of Ubuntu 16.04
+        # (which is used by default in Ubuntu containers), modify the
+        # inventories/testing/group_vars/ubuntu.yml file to specify bionic
+        # instead of xenial.
+        #
         #######################################################################
 
         # Valid values: "create" and "remove"
