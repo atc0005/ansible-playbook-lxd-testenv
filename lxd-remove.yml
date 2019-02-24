@@ -12,7 +12,7 @@
 # Prune container settings after completion of test work
 
 - name: Tear down our LXD test environment
-  hosts: localhost
+  hosts: all
 
   # Rely on this setting to be specified in host_vars or group_vars files. If
   # we lock in the 'local' option here then that rules out connecting via SSH

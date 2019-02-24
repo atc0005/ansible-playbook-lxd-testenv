@@ -1,0 +1,29 @@
+---
+
+# vim: ts=2:sw=2:et:ft=yaml
+# -*- mode: yaml; indent-tabs-mode: nil; tab-width: 2 -*-
+# code: language=yaml insertSpaces=true tabSize=2
+
+# https://github.com/atc0005/ansible-playbook-lxd-testenv
+# https://github.com/atc0005/ansible-role-lxd-testenv
+
+- name: Configure base LXD host
+  hosts: localhost
+
+  # Rely on this setting to be specified in host_vars or group_vars files. If
+  # we lock in the 'local' option here then that rules out setting up any
+  # remote hosts as LXD hosts.
+  # connection: local
+
+  # Should be fine to gather facts for just the future LXD host
+  gather_facts: yes
+
+  tasks:
+
+    # Stub role for now. Later work will have it install required packages
+    # needed in order to configure host system for running LXD containers
+    - name: Apply lxd-host role to install LXD packages, perform initial setup
+      import_role:
+        name: atc0005.lxd-host
+
+...
