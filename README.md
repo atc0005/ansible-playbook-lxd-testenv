@@ -1,20 +1,24 @@
-# lxd-testenv playbooks
+# Ansible Playbooks: lxd-testenv
 
 *Small suite of playbooks intended to help quickly spin up a test environment
 for other playbook work.*
 
 ## Overview
 
-| Name                       | Purpose (short)                                                      | Documentation                                                                |
-| -------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `site.yml`                 | Call `lxd-setup.yml` and `docker-setup.yml`                          | [lxd-setup.yml](docs/lxd-setup.md), [docker-setup.yml](docs/docker-setup.md) |
-| `docker-setup.yml`         | Install packages, configure specified hosts to run Docker containers | [playbook](docs/docker-setup.md)                                             |
-| `lxd-setup-host.yml`       | Setup LXD container host to run test containers                      | [playbook](docs/lxd-setup.md)                                                |
-| `lxd-setup-containers.yml` | Create LXD containers for testing purposes                           | [playbook](docs/lxd-setup.md)                                                |
-| `lxd-remove.yml`           | Tear down LXD container test environment                             | [playbook](docs/lxd-remove.md)                                               |
+| Name                       | Purpose (short)                                                      | Documentation                            |
+| -------------------------- | -------------------------------------------------------------------- | ---------------------------------------- |
+| `site.yml`                 | Call all "setup" playbooks needed to spin up test environment.       | See individual entries below             |
+| `lxd-setup-host.yml`       | Setup LXD container host to run test containers                      | [playbook](docs/lxd-setup-host.md)       |
+| `lxd-setup-containers.yml` | Create LXD containers for testing purposes                           | [playbook](docs/lxd-setup-containers.md) |
+| `docker-setup.yml`         | Install packages, configure specified hosts to run Docker containers | [playbook](docs/docker-setup.md)         |
+| `lxd-remove.yml`           | Tear down LXD container test environment                             | [playbook](docs/lxd-remove.md)           |
 
-See [lxd-timing](docs/lxd-timing.md) for *very* rough estimates on the time
+- See [lxd-timing](docs/lxd-timing.md) for *very* rough estimates on the time
 needed to spinup/teardown a test environment.
+
+- See [docker-storage-drivers](docs/docker-storage-drivers.md) for a quick
+  overview of known compatibility issues between LXD storage and Docker
+  storage drivers
 
 ## Limitations
 

@@ -1,4 +1,17 @@
-# Ansible Playbook: lxd-setup.yml
+# Ansible Playbook: lxd-setup-containers.yml
+
+## Table of Contents
+
+- [Ansible Playbook: lxd-setup-containers.yml](#ansible-playbook-lxd-setup-containersyml)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Limitations](#limitations)
+  - [Requirements](#requirements)
+    - [Install roles](#install-roles)
+    - [Install LXD packages, perform initial configuration](#install-lxd-packages-perform-initial-configuration)
+  - [Usage](#usage)
+  - [Playbook runtime](#playbook-runtime)
+  - [References](#references)
 
 ## Overview
 
@@ -22,8 +35,7 @@ environment.
 ### Install roles
 
 1. Move into directory containing inventories, and playbooks dir
-1. Install required roles
-    - `ansible-galaxy install -r requirements.yml -p roles --force`
+1. [Install required roles](install-roles.md)
 
 ### Install LXD packages, perform initial configuration
 
@@ -36,7 +48,12 @@ containers for local testing purposes.
 Run playbook against relevant inventory. In this case, we target our
 testing inventory from the main directory:
 
-`ansible-playbook -i inventories/testing lxd-setup.yml -K`
+`ansible-playbook -i inventories/testing lxd-setup-containers.yml -K`
+
+This step is handled automatically as part of using the site-wide playbook,
+`site.yml`:
+
+`ansible-playbook -i inventories/testing site.yml -K`
 
 ## Playbook runtime
 
