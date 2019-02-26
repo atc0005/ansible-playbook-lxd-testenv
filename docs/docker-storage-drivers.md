@@ -1,5 +1,15 @@
 # Ansible Role: Docker storage (docker-setup.yml)
 
+## Table of Contents
+
+- [Ansible Role: Docker storage (docker-setup.yml)](#ansible-role-docker-storage-docker-setupyml)
+  - [Table of Contents](#table-of-contents)
+  - [LXD + Docker CE `overlay2` storage driver](#lxd--docker-ce-overlay2-storage-driver)
+  - [LXD + ZFS storage + Docker CE `overlay` or `overlay` storage driver](#lxd--zfs-storage--docker-ce-overlay-or-overlay-storage-driver)
+  - [LXD + `dir` storage + Docker `overlay` storage driver](#lxd--dir-storage--docker-overlay-storage-driver)
+  - [Docker `vfs` storage driver](#docker-vfs-storage-driver)
+  - [References](#references)
+
 ## LXD + Docker CE `overlay2` storage driver
 
 LXD 2.x or 3.x (regardless of LXD storage option) is incompatible with Docker
