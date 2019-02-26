@@ -1,5 +1,22 @@
 # Ansible Role: LXD Test Environment (lxd-testenv)
 
+## Table of Contents
+
+- [Ansible Role: LXD Test Environment (lxd-testenv)](#ansible-role-lxd-test-environment-lxd-testenv)
+  - [Table of Contents](#table-of-contents)
+  - [Spinup and teardown "benchmarks"](#spinup-and-teardown-%22benchmarks%22)
+    - [ZFS-based storage](#zfs-based-storage)
+      - [Re-run of `site.yml`, no needed changes](#re-run-of-siteyml-no-needed-changes)
+      - [Removal of containers (`lxd-remove.yml`)](#removal-of-containers-lxd-removeyml)
+      - [Fresh `site.yml` run (complete setup)](#fresh-siteyml-run-complete-setup)
+      - [Fresh `lxd-setup.yml` run (partial setup)](#fresh-lxd-setupyml-run-partial-setup)
+    - [dir based storage](#dir-based-storage)
+      - [Re-run of `site.yml`, no needed changes](#re-run-of-siteyml-no-needed-changes-1)
+      - [Removal of containers (`lxd-remove.yml`)](#removal-of-containers-lxd-removeyml-1)
+      - [Fresh `site.yml` run (complete setup)](#fresh-siteyml-run-complete-setup-1)
+      - [Fresh `lxd-setup.yml` run (partial setup)](#fresh-lxd-setupyml-run-partial-setup-1)
+  - [References](#references)
+
 ## Spinup and teardown "benchmarks"
 
 *I say benchmark only in the loosest sense.*
