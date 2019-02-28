@@ -82,7 +82,7 @@
         # lxd_containers_docker_storage_driver: "vfs"
         # lxd_containers_docker_storage_driver: "overlay"
         # lxd_containers_create: true
-        # lxd_containers_create_timeout: "20"
+        # lxd_containers_create_timeout: "600"
         # lxd_containers_wait_for_ipv4_addresses: true
         # lxd_containers_configure: true
         # lxd_containers_bootstrap: true
