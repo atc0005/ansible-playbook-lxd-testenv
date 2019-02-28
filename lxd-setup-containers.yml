@@ -66,11 +66,23 @@
         # lxd_containers_service_group: "ansible"
         # lxd_containers_service_account: "ansible"
         # lxd_containers_proxy_server: "http://proxy.example.com:3128/"
-        # lxd_containers_image_source: "ubuntu/xenial/amd64"
-        # lxd_containers_image_server: "https://images.linuxcontainers.org"
+        # lxd_containers_source_type: "image"
+        # lxd_containers_source_mode: "pull"
+        # lxd_containers_source_alias: "ubuntu/xenial/amd64"
+        # lxd_containers_source_protocol: "simplestreams"
+
+        # NOTE: If setting the fingerprint value, you should also set the
+        # server URL value to ensure that the requested image (via
+        # fingerprint) is retrieved from the correct server.
+        #
+        # lxd_containers_source_server: "https://images.linuxcontainers.org"
+        # lxd_containers_source_fingerprint: ""
+
         # lxd_containers_docker_storage_driver: "vfs"
         # lxd_containers_docker_storage_driver: "overlay"
         # lxd_containers_create: true
+        # lxd_containers_create_timeout: "20"
+        # lxd_containers_wait_for_ipv4_addresses: true
         # lxd_containers_configure: true
         # lxd_containers_bootstrap: true
         # lxd_containers_add_proxy_to_etc_environment_file: true

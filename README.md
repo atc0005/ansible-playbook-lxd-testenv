@@ -147,7 +147,7 @@ results by applying overrides at `group_vars` or even `host_vars` level.
 For example, if you wish to use Ubuntu 18.04 (bionic) instead of the default
 Ubuntu 16.04 (xenial), you should modify the `group_vars/ubuntu.yml` file to
 specify the desired image instead of setting this as the playbook level where
-it would override the CentOS 7 image specificed for CentOS containers.
+it would override the CentOS 7 image specified for CentOS containers.
 
 See these docs for more information:
 
