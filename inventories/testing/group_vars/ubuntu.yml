@@ -9,4 +9,9 @@ lxd_containers_source_alias: "ubuntu/xenial/amd64"
 # host systems in order to provide access to additional modules.
 python_install_command: "apt-get update && apt-get install -y python"
 
+# The service name used to start/stop or enable/disable OpenSSH.
+# Ubuntu 14.04: 'ssh'
+# Ubuntu 16.04+: 'ssh', includes 'sshd' symlink to match CentOS 6 and 7
+lxd_containers_sshd_service_name: "ssh"
+
 ...

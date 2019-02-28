@@ -69,6 +69,7 @@
         # lxd_containers_source_type: "image"
         # lxd_containers_source_mode: "pull"
         # lxd_containers_source_alias: "ubuntu/xenial/amd64"
+        # lxd_containers_sshd_service_name: "sshd"
         # lxd_containers_source_protocol: "simplestreams"
 
         # NOTE: If setting the fingerprint value, you should also set the

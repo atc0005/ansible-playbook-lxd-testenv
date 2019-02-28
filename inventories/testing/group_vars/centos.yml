@@ -9,4 +9,9 @@ lxd_containers_source_alias: "centos/7/amd64"
 # host systems in order to provide access to additional modules.
 python_install_command: "yum install -y python"
 
+# The service name used to start/stop or enable/disable OpenSSH.
+# CentOS 6/7: 'sshd'
+# Ubuntu: 'ssh'
+lxd_containers_sshd_service_name: "sshd"
+
 ...
