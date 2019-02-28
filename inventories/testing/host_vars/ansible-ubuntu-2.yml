@@ -27,7 +27,8 @@ lxd_containers_packages_extra:
 #
 #  dcbc8e3e5c2e | yes    | ubuntu 18.04 LTS amd64 (release) (20190114)
 lxd_containers_source_fingerprint: "dcbc8e3e5c2e"
-lxd_containers_source_protocol: "simplestreams"
+# This protocol is now the default
+#lxd_containers_source_protocol: "simplestreams"
 lxd_containers_source_server: "https://cloud-images.ubuntu.com/releases"
 
 ...
