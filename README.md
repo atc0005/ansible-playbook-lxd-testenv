@@ -180,7 +180,7 @@ it would override the CentOS 7 image specified for CentOS containers.
 
 See these docs for more information:
 
-- [lxd-setup](docs/lxd-setup.md)
+- [lxd-setup-containers](docs/lxd-setup-containers.md)
 - [docker-setup](docs/docker-setup.md)
 
 Review those settings and tweak as needed. See also the [README](#references)
@@ -214,7 +214,7 @@ entries and then modify the `site.yml` playbook to remove the inclusion of the
 
 See these docs for more information:
 
-- [lxd-setup](docs/lxd-setup.md)
+- [lxd-setup-containers](docs/lxd-setup-containers.md)
 - [docker-setup](docs/docker-setup.md)
 
 See [lxd-timing](docs/lxd-timing.md) for *very* rough estimates on the time
@@ -267,7 +267,7 @@ remove them all.
 
 - `ansible-playbook -i inventories/testing/hosts-large lxd-remove.yml -K`
 
-See [this doc](docs/lxd-remove.md) for more information.
+See [lxd-remove](docs/lxd-remove.md) for more information.
 
 See [lxd-timing](docs/lxd-timing.md) for *very* rough estimates on the time
 needed to spinup/teardown a test environment.
