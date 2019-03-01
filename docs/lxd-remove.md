@@ -35,6 +35,14 @@ testing inventory from the main directory:
 
 `ansible-playbook -i inventories/testing lxd-remove.yml -K`
 
+Note: By not specifying a specific hosts list, Ansible will merge all host
+lists together into one dynamic list and apply this playbook against all
+matching hosts. Since this playbook specifices "all" as the target hosts
+group, all of these hosts in the combined list will be targeted.
+
+See the main [README](../README.md) for examples of targeting specific hosts
+lists.
+
 ## Playbook runtime
 
 Under a minute when using a SSD drive. Teardown time is nearly identical

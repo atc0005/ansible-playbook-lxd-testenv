@@ -62,6 +62,14 @@ This step is handled automatically as part of using the site-wide playbook,
 
 `ansible-playbook -i inventories/testing site.yml -K`
 
+Note: By not specifying a specific hosts list, Ansible will merge all host lists
+together into one dynamic list and apply playbooks against all matching hosts.
+If the playbook specifices "all" as the target hosts group, then all of these
+hosts in the combined list will be targeted.
+
+See the main [README](../README.md) for examples of targeting specific hosts
+lists.
+
 ## Playbook runtime
 
 N/A (see WARNING above)
