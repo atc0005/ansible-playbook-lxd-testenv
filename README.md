@@ -3,6 +3,35 @@
 *Small suite of playbooks intended to help quickly spin up a test environment
 for other playbook work.*
 
+## Table of Contents
+
+- [Ansible Playbooks: lxd-testenv](#ansible-playbooks-lxd-testenv)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Limitations](#limitations)
+    - [Linux Distributions](#linux-distributions)
+    - [Docker storage driver](#docker-storage-driver)
+  - [Prerequisites](#prerequisites)
+    - [Inventory](#inventory)
+    - [LXD packages](#lxd-packages)
+    - [LXD configuration](#lxd-configuration)
+      - [TL;DR](#tldr)
+      - [Networking: NAT bridge](#networking-nat-bridge)
+      - [Networking: External bridge](#networking-external-bridge)
+  - [Usage](#usage)
+    - [Install roles](#install-roles)
+    - [Customize playbook variables](#customize-playbook-variables)
+    - [Create new test environment](#create-new-test-environment)
+      - [Default host list](#default-host-list)
+      - [Small host list](#small-host-list)
+      - [Large host list](#large-host-list)
+    - [Teardown test environment](#teardown-test-environment)
+  - [References](#references)
+    - [External](#external)
+      - [General](#general)
+      - [LXD Network configuration](#lxd-network-configuration)
+    - [Related repos](#related-repos)
+
 ## Overview
 
 | Name                       | Purpose (short)                                                      | Documentation                            |
@@ -160,10 +189,22 @@ additional information for each supported option.
 
 ### Create new test environment
 
+#### Default host list
+
 The following steps will prep the host to run LXD containers and then proceed
-to spin up several CentOS and Ubuntu containers:
+to spin up a moderate number of CentOS and Ubuntu containers:
 
 - `ansible-playbook -i inventories/testing site.yml -K`
+
+Breakdown of containers created:
+
+- 5 containers
+  - 1 Ubuntu container explicitly set to the latest LTS release
+  - 1 Ubuntu container explicitly set to the prior LTS release
+  - 1 "Docker" container with the latest Ubuntu LTS release + Docker
+    configuration
+  - 1 CentOS container explicitly set to the latest LTS release
+  - 1 CentOS container explicitly set to the prior LTS release
 
 Note: By default, at least one additional container will be spun up as a
 Docker Host for testing Docker related playbooks. To disable this behavior,
@@ -178,6 +219,43 @@ See these docs for more information:
 
 See [lxd-timing](docs/lxd-timing.md) for *very* rough estimates on the time
 needed to spinup/teardown a test environment.
+
+In addition to the standard set of containers, reduced and extended lists of
+containers are also available depending on your testing needs. See those
+sections for details.
+
+#### Small host list
+
+Quick example:
+
+- `ansible-playbook -i inventories/testing/hosts-small site.yml -K`
+
+Breakdown of containers created:
+
+- 2 containers
+  - 1 "normal" Ubuntu container explicitly set to the latest LTS release
+  - 1 CentOS container explicitly set to the latest LTS release
+  - 0 Ubuntu containers with Docker configuration
+
+#### Large host list
+
+Quick example:
+
+- `ansible-playbook -i inventories/testing/hosts-large site.yml -K`
+
+Breakdown of containers created:
+
+- 11 containers
+  - 1 Ubuntu container explicitly set to the latest LTS release
+  - 1 Ubuntu container explicitly set to the prior LTS release
+  - 1 "Docker" container with the latest Ubuntu LTS release + Docker
+    configuration
+  - 2 Ubuntu containers set to use whatever
+    `inventories/testing/group_vars/ubuntu.yml` is configured with
+  - 1 CentOS container explicitly set to the latest LTS release
+  - 1 CentOS container explicitly set to the prior LTS release
+  - 2 CentOS containers set to use whatever
+    `inventories/testing/group_vars/centos.yml` is configured with
 
 ### Teardown test environment
 

@@ -1,0 +1,72 @@
+# vim: ts=4:sw=4:et:ft=ini
+# -*- mode: ini; indent-tabs-mode: nil; tab-width: 4 -*-
+# code: language=ini insertSpaces=true tabSize=4
+
+# https://github.com/atc0005/ansible-playbook-lxd-testenv
+# https://github.com/atc0005/ansible-role-lxd-testenv
+
+# Purpose: Larger set of containers for extended testing purposes.
+
+# See 'hosts-small' for a small set of containers that reflect that latest LTS
+# releases for distros in our production fleet.
+
+# See 'hosts' for a slightly smaller number of containers that reflect current
+# LTS releases + one release back that is still supported by the vendor.
+
+# NOTE: Hosts HAVE to be included in one of the OS groups in order to be
+# spun up as a LXD container.
+
+[centos]
+
+# Default distro release version is set via alias within group_vars/*.yml files
+# Host-specific distro choice set within host_vars/*.yml files
+ansible-centos-1
+ansible-centos-2
+ansible-centos-3
+ansible-centos-4
+ansible-centos-5
+
+[ubuntu]
+
+# Default distro release version is set via alias within group_vars/*.yml files
+# Host-specific distro choice set within host_vars/*.yml files
+ansible-ubuntu-1
+ansible-ubuntu-2
+ansible-ubuntu-3
+ansible-ubuntu-4
+ansible-ubuntu-5
+ansible-ubuntu-docker
+
+[docker-hosts:children]
+lxd-docker-containers
+
+[lxd-docker-containers]
+ansible-ubuntu-docker
+
+[tier1]
+ansible-centos-1
+ansible-ubuntu-1
+
+[tier2]
+ansible-centos-2
+ansible-ubuntu-2
+
+[tier3]
+ansible-centos-3
+ansible-ubuntu-3
+
+[tier4]
+ansible-centos-4
+ansible-ubuntu-4
+
+[tier5]
+ansible-centos-5
+ansible-ubuntu-5
+
+#[lxd_hosts]
+#localhost
+
+[lxd-all-containers:children]
+ubuntu
+centos
+lxd-docker-containers
