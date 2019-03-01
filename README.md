@@ -259,7 +259,15 @@ Breakdown of containers created:
 
 ### Teardown test environment
 
-- `ansible-playbook -i inventories/testing lxd-remove.yml -K`
+This should allow you to tear down *all* containers created by the
+`atc0005.lxd-testenv` role, regardless of which host list you used to generate
+the test environment. In short, even if you opted to use the smallest list,
+using the largest list for teardown will ensure that an attempt is made to
+remove them all.
+
+- `ansible-playbook -i inventories/testing/hosts-large lxd-remove.yml -K`
+
+####
 
 See [this doc](docs/lxd-remove.md) for more information.
 
