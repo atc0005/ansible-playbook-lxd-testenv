@@ -1,0 +1,34 @@
+# vim: ts=4:sw=4:et:ft=ini
+# -*- mode: ini; indent-tabs-mode: nil; tab-width: 4 -*-
+# code: language=ini insertSpaces=true tabSize=4
+
+# https://github.com/atc0005/ansible-playbook-lxd-testenv
+# https://github.com/atc0005/ansible-role-lxd-testenv
+
+
+# "Small" inventory file for Ansible testing purposes.
+#
+# This inventory file intentionally has a smaller list of containers than the
+# standard inventory file in order to maximize test environment build-up and
+# tear-down speed.
+#
+
+# Hosts HAVE to be included in one of the OS groups in order to be
+# spun up as a LXD container.
+
+[centos]
+
+# CentOS 7 (by way of host_vars/ansible-centos-1.yml)
+ansible-centos-1
+
+
+[ubuntu]
+
+# Ubuntu 18.04 (by way of host_vars/ansible-ubuntu-1.yml)
+ansible-ubuntu-1
+
+
+[lxd-all-containers:children]
+ubuntu
+centos
+
