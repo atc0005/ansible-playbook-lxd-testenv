@@ -194,7 +194,7 @@ additional information for each supported option.
 The following steps will prep the host to run LXD containers and then proceed
 to spin up a moderate number of CentOS and Ubuntu containers:
 
-- `ansible-playbook -i inventories/testing site.yml -K`
+- `ansible-playbook -i inventories/testing/hosts site.yml -K`
 
 Breakdown of containers created:
 
@@ -266,8 +266,6 @@ using the largest list for teardown will ensure that an attempt is made to
 remove them all.
 
 - `ansible-playbook -i inventories/testing/hosts-large lxd-remove.yml -K`
-
-####
 
 See [this doc](docs/lxd-remove.md) for more information.
 
