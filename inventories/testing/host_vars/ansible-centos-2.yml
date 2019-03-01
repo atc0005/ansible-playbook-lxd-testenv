@@ -11,4 +11,10 @@
 # This file is for variables specific to the host of the same name as this
 # file (minus extension of course)
 
+
+# Defines what container image is used
+# See https://images.linuxcontainers.org/ for supported options
+# Specify using 'distribution/release/architecture' format
+lxd_containers_source_alias: "centos/6/amd64"
+
 ...
