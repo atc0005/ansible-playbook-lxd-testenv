@@ -61,6 +61,9 @@
         # lxd_host_update_etc_hosts_file: true
         # lxd_host_ssh_public_key_for_containers: "{{ lxd_host_ssh_private_key_for_containers + '.pub' }}"
         # lxd_host_ssh_private_key_for_containers: "{{ lookup('env','HOME') + '/.ssh/id_ed25519' }}"
+        # lxd_host_https_api_url: ""
+        # lxd_host_https_api_trust_password: ""
+
         # lxd_containers_update_hosts_file: false
         # lxd_containers_sudoers_include_file: "/etc/sudoers.d/ansible"
         # lxd_containers_service_group: "ansible"
