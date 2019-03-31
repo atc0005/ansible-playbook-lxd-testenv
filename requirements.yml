@@ -2,7 +2,7 @@
 
 - name: "atc0005.docker-host"
   src: "https://github.com/atc0005/ansible-role-docker-host.git"
-  version: "v1.0"
+  version: "v1.0.1"
 
 - name: "atc0005.lxd-host"
   src: "https://github.com/atc0005/ansible-role-lxd-host.git"
